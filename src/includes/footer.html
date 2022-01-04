@@ -1,0 +1,9 @@
+<footer class="container">
+    <p>
+        © 2017–2021 Company, Inc.
+        @@for(var i = 0; i < footerMenu.length; i++) {
+            · <a class="`+mainMenu[i].class+`" title="`+mainMenu[i].title+`" href="`+mainMenu[i].url+`">`+mainMenu[i].label+`</a>
+        }
+    </p>
+    <p class="float-end"><a href="#">Back to top</a></p>
+</footer>

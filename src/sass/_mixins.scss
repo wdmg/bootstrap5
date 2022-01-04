@@ -1,0 +1,49 @@
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+// @include at-pseudo('before', null, null, 0, 0, 0, 0, false);
+@mixin at-pseudo($type, $width:null, $height:null, $top:null, $right:null, $bottom:null, $left:null, $relative:false, $content:null) {
+  &:#{$type} {
+
+    @if ($relative == true) {
+      position: relative;
+    } @else {
+      position: absolute;
+    }
+
+    @if $width { width: $width; }
+    @if $height { height: $height; }
+    @if $top { top: $top; }
+    @if $right { right: $right; }
+    @if $bottom { bottom: $bottom; }
+    @if $left { left: $left; }
+    @if $content {
+      content: #{$content};
+    } @else if ($relative == false) {
+      content: "";
+    }
+
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') { /* Chrome, Opera, Safari */
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') { /* Firefox 19+ */
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') { /* Firefox 18- */
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') { /* IE 10+ */
+    @content;
+  }
+}

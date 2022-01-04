@@ -1,0 +1,45 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "utils";
+@import "mixins";
+
+@import "fonts";
+$font-family-sans-serif: "Jost", -apple-system, "Noto Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+
+a {
+  transition: all 0.3s linear;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: theme-color('primary');
+  font-family: "Jost";
+}
+
+@import "includes/header";
